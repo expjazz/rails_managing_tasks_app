@@ -1,5 +1,9 @@
 <h1><%= t('.sign_up') %></h1>
 
+<h5 class="selector-on">Manager</h5>
+<h5 class="selector-of">Employee</h5>
+
+
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= bootstrap_devise_error_messages! %>
 
@@ -27,16 +31,21 @@
     <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= f.collection_select :global_entity, [Employee.first, Manager.first], :to_global_id, :to_s %>
-  </div>
 
-  <%= f.fields_for :employee do |e| %>
-      <li>
+
+  <div class=" d-none employee">
+    <%= f.fields_for :employee do |e| %>
+      <div class="form-group">
         <%= e.label :function %>
-        <%= e.text_field :function %>
-      </li>
+        <%= e.text_field :function, class: 'form-control' %>
+      </div>
     <% end %>
+  </div>
+  <div class="hidden-manager">
+    <%= f.fields_for :manager do |h| %>
+      <%= h.hidden_field(:manager, :value => 'Manager') %>   
+    <% end %>
+  </div>
 
   <div class="form-group">
     <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>

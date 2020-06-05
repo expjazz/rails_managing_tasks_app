@@ -8,4 +8,16 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :groups
   has_many :projects
+
+  def global_entity
+    profile&.to_global_id
+  end
+
+  def global_entity=(entity)
+    self.profile = GlobalID::Locator.locate entity
+  end
+
+  def tos_global_id(arr)
+    arr[1].to_global_id
+  end
 end

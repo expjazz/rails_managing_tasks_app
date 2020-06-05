@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name profile global_entity])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[name profile global_entity])
+  end
+
+  def tos_global_id(arr)
+    arr[1].to_global_id
   end
 end

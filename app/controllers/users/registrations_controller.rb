@@ -10,20 +10,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
-    if params[:profile][:employee]
+    if !params[:profile][:employee].nil?
       @employee = Employee.new
       @employee.function = params[:profile][:employee]
       @employee.save
       @user.profile = @employee
-    elsif params[:manager][:function]
-      @manager = Manager.create
+    elsif params[:profile][:manager]
+      @manager = Manager.new
+      @manager.function = params[:profile][:manager]
+      @manager.save
       @user.profile = @manager
     end
     if @user.save
       sign_in @user
       redirect_to root_path
-    else
-      render 'registrations/new'
     end
   end
 

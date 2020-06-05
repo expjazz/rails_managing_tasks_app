@@ -13,6 +13,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true, autocomplete: 'username', class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
   </div>
@@ -34,15 +39,15 @@
 
 
   <div class="employee">
+
+  </div>
+  <div class="manager">
     <%= fields_for :profile do |e| %>
       <div class="form-group">
         <%= e.label :status %>
-        <%= e.text_field :employee, class: 'form-control' %>
+        <%= e.text_field :manager, class: 'form-control' %>
       </div>
     <% end %>
-  </div>
-  <div class="manager">
-
   </div>
 
   <div class="form-group">

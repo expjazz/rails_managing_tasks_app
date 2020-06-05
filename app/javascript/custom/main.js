@@ -18,8 +18,8 @@ function init() {
       temp2.classList.add("selector-on");
       manager.innerHTML = "";
       employee.innerHTML = `<div class="form-group">
-      <label for="user_employee_function">Function</label>
-      <input class="form-control" type="text" name="user[employee][function]" id="user_employee_function">
+      <label for="profile_status">Status</label>
+      <input class="form-control" type="text" name="profile[employee]" id="profile_employee">
     </div>`;
     }
   };
@@ -32,9 +32,9 @@ function init() {
       temp.classList.add("selector-of");
       temp2.classList.add("selector-on");
       employee.innerHTML = "";
-      manager.innerHTML = `<div class="form-group">
-      <label for="user_manager_function">Function</label>
-      <input class="form-control" type="text" name="user[manager][function]" id="user_manager_function">
+      manager.innerHTML = `<<div class="form-group">
+      <label for="profile_status">Status</label>
+      <input class="form-control" type="text" name="profile[manager]" id="profile_manager">
     </div>`;
     }
   };

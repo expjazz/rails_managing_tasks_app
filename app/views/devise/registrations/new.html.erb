@@ -33,18 +33,16 @@
 
 
 
-  <div class=" d-none employee">
-    <%= f.fields_for :employee do |e| %>
+  <div class="employee">
+    <%= fields_for :profile do |e| %>
       <div class="form-group">
-        <%= e.label :function %>
-        <%= e.text_field :function, class: 'form-control' %>
+        <%= e.label :status %>
+        <%= e.text_field :employee, class: 'form-control' %>
       </div>
     <% end %>
   </div>
-  <div class="hidden-manager">
-    <%= f.fields_for :manager do |h| %>
-      <%= h.hidden_field(:manager, :value => 'Manager') %>   
-    <% end %>
+  <div class="manager">
+
   </div>
 
   <div class="form-group">

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :groups
   has_many :projects
+  accepts_nested_attributes_for :profile
+  accepts_nested_attributes_for :profile
 
   def global_entity
     profile&.to_global_id

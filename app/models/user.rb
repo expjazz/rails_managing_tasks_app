@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: { minimum: 3, maximum: 15 }
+  belongs_to :profile, polymorphic: true
   has_many :tasks
   has_many :groups
   has_many :projects

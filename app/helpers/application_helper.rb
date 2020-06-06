@@ -30,6 +30,10 @@ module ApplicationHelper
     end
   end
 
+  def chose_group_icon(icon)
+    fa_icon icon, class: 'f-s-3'
+  end
+
   def layout_header
     render 'layouts/header' unless request.url.include?('users' + '/' + current_user.id.to_s)
   end

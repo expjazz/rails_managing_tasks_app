@@ -12,6 +12,7 @@ gem 'sass-rails', '>= 6'
 gem "font-awesome-rails"
 gem 'open-iconic-rails'
 gem 'active_storage_validations', '0.8.2'
+gem 'will_paginate', '~> 3.1.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

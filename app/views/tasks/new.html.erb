@@ -1,2 +1,18 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<h3> Create a new task </h3>
+
+<%= form_with(model: @task, local: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :amount %>
+    <%= f.text_field :amount, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'submit', class: 'btn btn-primary'%>
+  </div>
+
+<% end %>

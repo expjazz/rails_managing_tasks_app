@@ -1,2 +1,13 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h3> This are all our tasks </h3>
+
+<% @tasks.each do |task| %>
+  <div class="media">
+  <img src="..." class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0"> <%= task.amount %> </h5>
+    <%= task.name%> / <%= task.group%>
+  </div>
+</div>
+
+
+<% end %>

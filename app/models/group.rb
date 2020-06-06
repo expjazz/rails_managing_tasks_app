@@ -1,6 +1,7 @@
 class Group < ApplicationRecord
   belongs_to :user
   has_many :tasks
+  scope :alphabetical, -> { order(name: :asc) }
   validates :name, presence: true, length: { minimum: 3, maximum: 20 }
 
   def self.font_awesome_list

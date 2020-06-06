@@ -1,2 +1,24 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+<div class="container-fluid w-100 h-100 bg-darkblue">
+
+  <div class="row">
+    <div class="col-6 mx-auto text-center">
+
+      <%# <%= image_tag @user.image, class: 'user-show-image text-center mt-5'%>
+
+      <h4 class="h1 text-white"> <%= current_user.name %> </h4>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6 mx-auto text-center d-flex flex-column align-items-center">
+
+      <% @groups.each do |group| %>
+        <div class="d-flex align-items-baseline justify-content-center border-bottom">
+          <%= fa_icon group.icon, class: 'f-s-2 text-white' %> <p class='text-white h5 p-3 '> <%= group.name %> </p> 
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+

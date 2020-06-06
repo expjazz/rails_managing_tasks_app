@@ -1,13 +1,31 @@
-<h3> This are all our tasks </h3>
-
-<% @tasks.each do |task| %>
-  <div class="media">
-  <img src="..." class="mr-3" alt="...">
-  <div class="media-body">
-    <h5 class="mt-0"> <%= task.amount %> </h5>
-    <%= task.name%> / <%= task.group%>
+<div class="row">
+  <div class="col-12 p-0">
+    <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
+      <h6 class="h6 text-muted">
+        Total Time spent on your tasks
+      </h6>
+      <h6 class="h6">
+        <%= current_user.format_duration(total_time_tasks(current_user)) %>
+      </h6>
+    </div>
   </div>
 </div>
-
-
+<% @tasks.each do |task| %>
+  <div class="row my-3">
+    <div class="col-12">
+        <div class="media bg-white shadow-sm border p-3">
+        <%= fa_icon "align-left" %>
+          <div class="media-body">
+            <h5 class="mt-0"> <%=  current_user.format_duration(task.amount) %> </h5>
+            <%= task.name%> / <%= task.group%>
+          </div>
+        </div>
+    </div>
+  </div>
 <% end %>
+
+<% @font_list.each do |f|%>
+  <%= fa_icon f %>
+<% end %>
+
+

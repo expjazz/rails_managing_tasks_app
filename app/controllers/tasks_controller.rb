@@ -11,7 +11,9 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = Task.most_recent
+    @all_tasks = Task.most_recent
+    @tasks = current_user.see_my_tasks(@all_tasks)
+    @font_list = Group.font_awesome_list
   end
 
   private

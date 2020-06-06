@@ -4,13 +4,19 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :name, presence: true, length: { minimum: 3, maximum: 35 }
+  validates :image,
+            content_type: ['image/png', 'image/jpg', 'image/jpeg'],
+            size:
+                      { less_than: 2.megabytes,
+                        message:
+                      'should be less than 2MB' }
   belongs_to :profile, polymorphic: true
   has_many :tasks
   has_many :groups
   has_many :projects
   accepts_nested_attributes_for :profile
   accepts_nested_attributes_for :profile
-
+  has_one_attached :image
   def see_my_tasks(tasks)
     tasks.select { |t| t.user_id == id }
   end

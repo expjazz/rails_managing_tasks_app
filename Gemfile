@@ -11,6 +11,7 @@ gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem "font-awesome-rails"
 gem 'open-iconic-rails'
+gem 'active_storage_validations', '0.8.2'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -23,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 gem 'rubocop', '~>0.81.0'
 gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'

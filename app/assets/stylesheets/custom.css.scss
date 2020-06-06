@@ -56,6 +56,12 @@
   background: #efebeb;
 }
 
+.user-show-image {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
 $space-amounts: (1, 2, 3, 4, 5);
 
 @each $space in $space-amounts {

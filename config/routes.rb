@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tasks/new'
+  get 'tasks/index'
   devise_for :users, controllers: { registrations: 'users/registrations' }
   resources :users, only: [:show]
   root 'users#profile'

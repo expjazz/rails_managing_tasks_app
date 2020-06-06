@@ -20,12 +20,13 @@ RSpec.describe 'Testing the login', type: :system do
     scenario 'Sign Up with valid params as a Employee' do
       visit root_path
       click_on 'Sign up'
+      click_on 'Employee'
       fill_in 'Name', with: user2.name
       fill_in 'Username', with: user2.username
       fill_in 'Email', with: user2.email
       fill_in 'Password', with: 'foobar'
       fill_in 'Password confirmation', with: 'foobar'
-      within('.manager') { fill_in('profile_manager', with: 'Rails Developer') }
+      within('.manager') { fill_in('profile_manager', with: 'CEO') }
       click_on 'Sign up'
       expect(page).to have_content(user2.username)
     end
@@ -38,6 +39,20 @@ RSpec.describe 'Testing the login', type: :system do
     # end
   end
 
+  feature 'checking content of the main page' do
+    user3 = User.first
+    scenario 'with a existing user that is a employee' do
+      visit root_path
+      click_on 'Log in'
+      fill_in 'Email', with: user3.email
+      fill_in 'Password', with: 'foobar'
+      click_on 'Log in'
+      expect(page).to have_content('All My Tasks',
+                                   'All my external tasks',
+                                   'All my groups',
+                                   'All my projects')
+    end
+  end
   # feature 'authentication system for logging in' do
   #   scenario 'Sign Up with valid params' do
   #     visit root_path

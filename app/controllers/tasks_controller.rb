@@ -4,8 +4,9 @@ class TasksController < ApplicationController
   end
 
   def create
+    byebug
     @task = Task.new(task_params)
-    @task.group_id = 1
+    byebug
     @task.user = current_user
     redirect_to tasks_path if @task.save
   end

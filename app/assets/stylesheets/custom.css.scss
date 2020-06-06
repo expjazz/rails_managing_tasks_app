@@ -28,3 +28,23 @@
 .container-fluid {
   background: #efebeb;
 }
+
+$space-amounts: (1, 2, 3, 4, 5);
+
+@each $space in $space-amounts {
+  .f-s-#{$space} {
+    font-size: #{$space}rem;
+  }
+  .f-s-#{$space} {
+    font-size: #{$space}rem 0;
+  }
+  .f-s-#{$space} {
+    font-size: 0 #{$space}rem;
+  }
+  .f-s-#{$space} {
+    font-size: #{$space}rem;
+  }
+  .f-s-#{$space} {
+    font-size: #{$space}rem;
+  }
+}

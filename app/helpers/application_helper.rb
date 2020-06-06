@@ -21,4 +21,12 @@ module ApplicationHelper
     end
     arr.sum
   end
+
+  def group_icon(task)
+    if task.group.nil?
+      ''
+    else
+      fa_icon task.group.icon, class: 'd-flex mr-3 f-s-5'
+    end
+  end
 end

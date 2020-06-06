@@ -13,14 +13,19 @@
 <% @external_tasks.each do |task| %>
   <div class="row my-3">
     <div class="col-12">
-        <div class="media bg-white shadow-sm border p-3">
-        <%= fa_icon "align-left" %>
+        <div class="media bg-white shadow-sm border p-2">
+        <%= group_icon(task) %>
           <div class="media-body">
-            <h5 class="mt-0"> <%=  current_user.format_duration(task.amount) %> </h5>
-            <%= task.name%> / <%= task.group%>
+            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= task.name%> </p> <p class="m-0 p-0"> <%=  current_user.format_duration(task.amount) %> </p>  </div>
+            <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> <%= task.created_at.to_date %> </p> <p class="m-0 p-0 text-muted"> <%=  task.group.name if task.group %> </p>   </div>
           </div>
         </div>
     </div>
   </div>
 <% end %>
+<div class="row">
+  <div class="col-12">
+    <%= link_to "Add new", new_task_path, class: 'btn btn-success w-100'%>
+  </div>
+</div>
 

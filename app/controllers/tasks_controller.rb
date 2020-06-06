@@ -16,6 +16,11 @@ class TasksController < ApplicationController
     @font_list = Group.font_awesome_list
   end
 
+  def externals
+    @all_tasks = Task.most_recent
+    @external_tasks = current_user.external_tasks(@all_tasks)
+  end
+
   private
 
   def task_params

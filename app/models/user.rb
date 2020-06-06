@@ -15,6 +15,10 @@ class User < ApplicationRecord
     tasks.select { |t| t.user_id == id }
   end
 
+  def external_tasks(tasks)
+    tasks.select { |t| t.group_id.nil? && t.user_id == id } || []
+  end
+
   def format_duration(seconds)
     return '' if seconds.zero?
 

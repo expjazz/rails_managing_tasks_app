@@ -29,4 +29,8 @@ module ApplicationHelper
       fa_icon task.group.icon, class: 'd-flex mr-3 f-s-5'
     end
   end
+
+  def layout_header
+    render 'layouts/header' unless request.url.include?('users' + '/' + current_user.id.to_s)
+  end
 end

@@ -63,6 +63,35 @@ module ApplicationHelper
     user.format_duration(hiring_date)
   end
 
+  def hidden_user(user)
+    if user != current_user
+      render 'tasks/taskemp'
+    elsif user == current_user
+      render 'tasks/taskuser'
+    end
+  end
+
+  def assigned_tasks(user)
+    temp = check_tasks_to_do(current_user) if current_user.profile_type == 'Employee' && user == current_user
+    if temp == true
+      render 'tasks/assignedtasks'
+    else
+      render 'tasks/noassignedtasks'
+    end
+  end
+
+  def check_tasks_to_do(user)
+    temp = false
+    user.tasks.each do |item|
+      next unless item.status == false
+
+      temp = true
+      break
+    end
+    return true if temp == true
+    return false if temp == false
+  end
+
   def layout_header
     render 'layouts/header' unless request.url.include?('users' + '/' + current_user.id.to_s)
   end

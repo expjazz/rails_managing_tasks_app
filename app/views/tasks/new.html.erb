@@ -16,6 +16,8 @@
     <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {class: 'form-control'}) %>
   </div>
 
+  <%= hidden_user(@user) %>
+
   <div class="form-group">
     <%= f.submit 'submit', class: 'btn btn-success w-100' %>
   </div>

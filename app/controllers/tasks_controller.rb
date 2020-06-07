@@ -1,11 +1,17 @@
 class TasksController < ApplicationController
   def new
     @task = Task.new
+    @user = params[:user_id] ? User.find(params[:user_id]) : current_user
   end
 
   def create
     @task = Task.new(task_params)
-    @task.user = current_user
+    status = params[:status]
+    user_id = params[:user_id]
+    if status && user_id
+      @task.status = status
+      @task.user_id = user_id
+    end
     redirect_to tasks_path if @task.save
   end
 
@@ -23,6 +29,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :user, :amount, :group_id)
+    params.require(:task).permit(:name, :user, :amount, :group_id, :status)
   end
 end

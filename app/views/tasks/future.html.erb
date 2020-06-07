@@ -2,10 +2,10 @@
   <div class="col-12 p-0">
     <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
       <h6 class="h6 text-muted">
-        Total Time spent on your tasks from the group: <span class='text-capitalize font-weight-bold'><%= @group.name %></span>
+        Total time estimated you will need to complete those tasks
       </h6>
       <h6 class="h6">
-        <%= current_user.format_duration(total_time_tasks(current_user)) %>
+        <%= @user.format_duration(total_time_tasks(@user)) %>
       </h6>
     </div>
   </div>
@@ -19,14 +19,11 @@
           <div class="media-body">
             <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= task.name%> </p> <p class="m-0 p-0"> <%=  current_user.format_duration(task.amount) %> </p>  </div>
             <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> <%= task.created_at.to_date %> </p> <p class="m-0 p-0 text-muted"> <%=  task.group.name if task.group %> </p>   </div>
+            <%= link_to "Mark as done", mark_task_done_path(:task_id => task.id), class: 'btn btn-success'%>
           </div>
         </div>
     </div>
   </div>
 <% end %>
 
-<div class="row">
-  <div class="col-12">
-    <%= link_to "Add new", new_task_path(:group_id => @group.id ), class: 'btn btn-success w-100'%>
-  </div>
-</div>
+

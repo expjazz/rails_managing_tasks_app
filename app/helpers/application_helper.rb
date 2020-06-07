@@ -74,6 +74,8 @@ module ApplicationHelper
   def assigned_tasks(user)
     temp = check_tasks_to_do(current_user) if current_user.profile_type == 'Employee' && user == current_user
     if temp == true
+      future_tasks = user.tasks.select { |x| x.status == false }
+      @future_count = future_tasks.count
       render 'tasks/assignedtasks'
     else
       render 'tasks/noassignedtasks'

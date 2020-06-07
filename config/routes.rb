@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   resources :groups, only: %i[index new create show]
   root 'users#profile'
   get 'externals_task', to: 'tasks#externals'
+  get 'managing_employees', to: 'managers#employees'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

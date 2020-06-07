@@ -5,6 +5,7 @@
       <%= user_image(current_user) %>
 
       <h4 class="h1 text-white"> <%= @user.name %> </h4>
+      <small class="text-white"> <%= @user.profile_type %> </small>
     </div>
   </div>
 
@@ -30,6 +31,8 @@
       <%= link_to groups_path, class: 'text-white h5 w-25 p-3 w-50 border-bottom' do %>
         <%= fa_icon "columns" %> See all groups
       <% end %>
+
+      <%= manage_employee(current_user) %>
     </div>
   </div>
 

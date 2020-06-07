@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-12 p-0">
+    <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
+      <h6 class="h6 text-muted">
+        Here are all employees from your department
+      </h6>
+      <h6 class="h6">
+        <%= @employees.count %>
+      </h6>
+    </div>
+  </div>
+</div>
+<% @employees.each do |employee| %>
+  <div class="row my-3">
+    <div class="col-12">
+        <div class="media bg-white shadow-sm border p-2">
+        <%= user_image(current_user) %>
+
+          <div class="media-body">
+            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= employee.name %> </p> <p class="m-0 p-0"> <%=   %> </p>  </div>
+            <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> <%= 'Period of service: ' %> </p> <p class="m-0 p-0 text-muted"> <%=  working_period(employee) %> </p>   </div>
+          </div>
+        </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-12">
+    <%= link_to "Add new", new_task_path, class: 'btn btn-success w-100'%>
+  </div>
+</div>

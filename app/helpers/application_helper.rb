@@ -35,11 +35,24 @@ module ApplicationHelper
   end
 
   def user_image(user)
-    !if user.image.nil?
-       image_tag @user.image, class: 'user-show-image text-center mt-5'
-     else
-       ''
+    if user.image.attached?
+      image_tag user.image, class: 'user-show-image text-center mt-5'
+    else
+      ''
     end
+  end
+
+  def manage_employee(user)
+    if user.profile_type == 'Manager'
+      render 'users/manager'
+    else
+      ''
+    end
+  end
+
+  def working_period(user)
+    hiring_date = (Time.now - user.created_at).to_s.to_i
+    user.format_duration(hiring_date)
   end
 
   def layout_header

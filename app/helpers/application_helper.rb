@@ -34,6 +34,14 @@ module ApplicationHelper
     fa_icon icon, class: 'f-s-3'
   end
 
+  def user_image(user)
+    !if user.image.nil?
+       image_tag @user.image, class: 'user-show-image text-center mt-5'
+     else
+       ''
+    end
+  end
+
   def layout_header
     render 'layouts/header' unless request.url.include?('users' + '/' + current_user.id.to_s)
   end

@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="col-6 mx-auto text-center">
-      <%= image_tag @user.image, class: 'user-show-image text-center mt-5'%>
+      <%= user_image(current_user) %>
 
       <h4 class="h1 text-white"> <%= @user.name %> </h4>
     </div>

@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_06_06_185222) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "icon"
+    t.integer "project_id"
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 

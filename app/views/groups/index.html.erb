@@ -13,9 +13,11 @@
     <div class="col-6 mx-auto text-center d-flex flex-column align-items-center">
 
       <% @groups.each do |group| %>
-        <div class="d-flex align-items-baseline justify-content-center border-bottom">
-          <%= fa_icon group.icon, class: 'f-s-2 text-white' %> <p class='text-white h5 p-3 '> <%= group.name %> </p> 
-        </div>
+      <%= link_to group_path(group) do %>
+          <div class="d-flex align-items-baseline justify-content-center border-bottom">
+            <%= fa_icon group.icon, class: 'f-s-2 text-white' %> <p class='text-white h5 p-3 '> <%= group.name %> </p> 
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

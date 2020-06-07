@@ -9,5 +9,20 @@ class GroupsController < ApplicationController
     @groups = Group.alphabetical
   end
 
-  def create; end
+  def show
+    @group = Group.find(params[:id])
+    @tasks = Group.first.tasks.most_recent
+  end
+
+  def create
+    @group = Group.new(group_params)
+    @group.user = current_user
+    @group.save
+  end
+
+  private
+
+  def group_params
+    params.require(:group).permit(:icon, :name, :project_id)
+  end
 end

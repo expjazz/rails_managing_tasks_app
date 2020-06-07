@@ -10,8 +10,9 @@ class TasksController < ApplicationController
   end
 
   def index
+    @user = params[:user_id] ? User.find(params[:user_id]) : current_user
     @all_tasks = Task.most_recent
-    @tasks = current_user.see_my_tasks(@all_tasks)
+    @tasks = @user.see_my_tasks(@all_tasks)
   end
 
   def externals

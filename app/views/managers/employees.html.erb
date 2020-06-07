@@ -14,10 +14,10 @@
   <div class="row my-3">
     <div class="col-12">
         <div class="media bg-white shadow-sm border p-2">
-        <%= user_image(current_user) %>
+        <%= user_image_small(employee) %>
 
           <div class="media-body">
-            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= employee.name %> </p> <p class="m-0 p-0"> <%=   %> </p>  </div>
+            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= employee.name %> </p> <p class="m-0 p-0"> <%= link_to 'Manage tasks', tasks_path(:user_id => employee.id)  %> </p>  </div>
             <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> <%= 'Period of service: ' %> </p> <p class="m-0 p-0 text-muted"> <%=  working_period(employee) %> </p>   </div>
           </div>
         </div>

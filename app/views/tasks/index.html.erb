@@ -5,7 +5,7 @@
         Total Time spent on your tasks
       </h6>
       <h6 class="h6">
-        <%= current_user.format_duration(total_time_tasks(current_user)) %>
+        <%= @user.format_duration(total_time_tasks(@user)) %>
       </h6>
     </div>
   </div>

@@ -42,6 +42,14 @@ module ApplicationHelper
     end
   end
 
+  def user_image_small(user)
+    if user.image.attached?
+      image_tag user.image, class: 'user-show-small text-center mr-3 d-flex'
+    else
+      ''
+    end
+  end
+
   def manage_employee(user)
     if user.profile_type == 'Manager'
       render 'users/manager'

@@ -77,8 +77,8 @@ module ApplicationHelper
       future_tasks = user.tasks.select { |x| x.status == false }
       @future_count = future_tasks.count
       render 'tasks/assignedtasks'
-    else
-      render 'tasks/noassignedtasks'
+    elsif current_user.profile_type == 'Manager' && current_user != user
+      render 'tasks/manager'
     end
   end
 

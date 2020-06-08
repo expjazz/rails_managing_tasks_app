@@ -5,6 +5,7 @@ class NoticeController < ApplicationController
       ActionCable.server.broadcast 'notice_channel',
                                    foo: notice.body
     end
+    redirect_to root_path
   end
 
   private

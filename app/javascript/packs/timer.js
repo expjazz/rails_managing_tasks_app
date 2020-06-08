@@ -3,6 +3,7 @@ console.log("test");
 // let timeVar = setInterval(countTimer, 1000);
 let timer = document.getElementById("timer");
 let buttonTimer = document.getElementById("button-timer");
+let buttonTimerStop = document.getElementById("button-timer-of");
 let totalSeconds = 0;
 let hiddenAmount = document.getElementById("amount_real");
 let setAmount = document.getElementById("set-value");
@@ -29,7 +30,21 @@ setTimer.addEventListener("click", (e) => {
 buttonTimer.addEventListener("click", (e) => {
   e.stopPropagation();
   e.preventDefault();
-  setInterval(countTimer, 1000);
+  test = setInterval(countTimer, 1000);
+  document.getElementById("button-timer-of").classList.add("d-inline-block");
+  document.getElementById("button-timer-of").classList.remove("d-none");
+  document.getElementById("button-timer").classList.add("d-none");
+  document.getElementById("button-timer").classList.remove("d-inline-block");
+});
+
+buttonTimerStop.addEventListener("click", (e) => {
+  e.stopPropagation();
+  e.preventDefault();
+  clearInterval(test);
+  document.getElementById("button-timer").classList.add("d-inline-block");
+  document.getElementById("button-timer").classList.remove("d-none");
+  document.getElementById("button-timer-of").classList.add("d-none");
+  document.getElementById("button-timer-of").classList.remove("d-inline-block");
 });
 function countTimer() {
   ++totalSeconds;

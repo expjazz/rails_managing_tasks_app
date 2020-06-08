@@ -1,11 +1,15 @@
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
+<li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Notifications
+        </a>
   <div class="dropdown-menu" id='notice-container' aria-labelledby="dropdownMenuButton">
     <% current_user.alert_received.each do |alert| %>
       <%= link_to alert.body, '#', class: 'dropdown-item'%>
     <% end %>
     
   </div>
-</div>
+</li>
+
+
+
+ 

@@ -14,3 +14,9 @@ import "bootstrap";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+let c = document.getElementById("notice-container");
+
+c.addEventListener("DOMNodeInserted", (e) => {
+  c.parentElement.textContent += 1;
+});

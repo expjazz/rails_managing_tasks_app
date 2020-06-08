@@ -5,7 +5,7 @@
         Total Time spent on your tasks from the group: <span class='text-capitalize font-weight-bold'><%= @group.name %></span>
       </h6>
       <h6 class="h6">
-        <%= current_user.format_duration(total_time_tasks(current_user)) %>
+        <%= current_user.format_duration(total_group_time(@group)) %>
       </h6>
     </div>
   </div>

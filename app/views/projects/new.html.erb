@@ -1,2 +1,10 @@
-<h1>Projects#new</h1>
-<p>Find me in app/views/projects/new.html.erb</p>
+<%= form_with model: @project, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit 'submit', class: 'btn btn-success w-100' %>
+  </div>
+<% end %>

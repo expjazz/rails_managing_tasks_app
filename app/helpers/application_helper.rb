@@ -22,6 +22,20 @@ module ApplicationHelper
     arr.sum
   end
 
+  def total_project_time(project)
+    total = 0
+    project.groups.each do |group|
+      group.tasks.each { |task| total += task.amount }
+    end
+    total
+  end
+
+  def total_group_time(group)
+    total = 0
+    group.tasks.each { |task| total += task.amount }
+    total
+  end
+
   def group_icon(task)
     if task.group.nil?
       ''
@@ -85,6 +99,11 @@ module ApplicationHelper
   def group_all
     Group.create(name: 'None', icon: '', user: current_user) unless Group.find_by(name: 'None')
     Group.all
+  end
+
+  def project_all
+    Project.create(name: 'None', user: current_user) unless Project.find_by(name: 'None')
+    Project.all
   end
 
   def check_tasks_to_do(user)

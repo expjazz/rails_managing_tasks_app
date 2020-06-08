@@ -2,7 +2,7 @@ class GroupsController < ApplicationController
   require 'will_paginate/array'
   def new
     @font_list = Group.font_awesome_list
-    @group = Group.new
+    @group = params[:project_id] ? Group.new(project_id: params[:project_id]) : Group.new
   end
 
   def index

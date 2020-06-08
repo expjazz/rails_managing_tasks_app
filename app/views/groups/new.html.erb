@@ -5,7 +5,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.collection_select(:project_id, Project.all, :id, :name, {}, {class: 'form-control'}) %>
+    <%= f.collection_select(:project_id, project_all, :id, :name, {}, {class: 'form-control'}) %>
   </div>
 
   <div class="icon-container">

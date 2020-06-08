@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many :groups
+  scope :alphabetical, -> { order(name: :asc) }
   validates :name, presence: true, length: { minimum: 3, maximum: 55 }
 end

@@ -24,6 +24,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.save
       sign_in @user
       redirect_to root_path
+    else
+      render 'devise/registrations/new'
     end
   end
 

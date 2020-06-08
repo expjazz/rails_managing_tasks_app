@@ -5,11 +5,19 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-
-  <div class="form-group">
+  <div class="d-flex">
+    <%= link_to 'Set value', '#', { class: 'btn btn-success', id: 'set-value' }%>
+    <%= link_to 'Set timer', '#', { class: 'btn btn-outline-success', id: 'set-timer' }%>
+</div>
+   <div class="form-group"> 
     <%= f.label :amount %>
-    <%= f.text_field :amount, class: 'form-control' %>
-  </div>
+     <%= f.text_field :amount, class: 'form-control', id: 'amount-to-hide' %> 
+   </div> 
+
+   <div class="timer d-none">
+    <p id="timer"></p>
+    <%= link_to "Start", '#', {class: 'btn btn-success', id: 'button-timer'} %>
+   </div>
 
   <div class="form-group">
     <%= f.label :group %>
@@ -17,9 +25,14 @@
   </div>
 
   <%= hidden_user(@user) %>
+  <%= hidden_field_tag :amount_real, 0 %>
 
   <div class="form-group">
     <%= f.submit 'submit', class: 'btn btn-success w-100' %>
   </div>
 
 <% end %>
+
+
+<%= javascript_pack_tag 'timer' %>
+

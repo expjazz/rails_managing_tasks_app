@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'projects/new'
+  get 'projects/index'
+  get 'projects/create'
   # get 'groups/new'
   # get 'groups/index'
   # get 'groups/create'
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :tasks, only: %i[index new create]
   resources :groups, only: %i[index new create show]
+  resources :projects, only: %i[index new create show]
   root 'users#profile'
   get 'externals_task', to: 'tasks#externals'
   get 'managing_employees', to: 'managers#employees'

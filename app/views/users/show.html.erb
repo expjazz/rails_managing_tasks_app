@@ -32,6 +32,10 @@
         <%= fa_icon "columns" %> See all groups
       <% end %>
 
+      <%= link_to projects_path, class: 'text-white h5 w-25 p-3 w-50 border-bottom' do %>
+        <%= fa_icon "project-diagram", type: :solid %> See all projects
+      <% end %>
+
       <%= manage_employee(current_user) %>
     </div>
   </div>

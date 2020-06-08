@@ -10,6 +10,7 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 gem "font-awesome-rails"
+gem 'font_awesome5_rails'
 gem 'open-iconic-rails'
 gem 'active_storage_validations', '0.8.2'
 gem 'will_paginate', '~> 3.1.0'

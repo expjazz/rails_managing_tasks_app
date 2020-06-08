@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :group %>
-    <%= f.collection_select(:group_id, Group.all, :id, :name, {}, {class: 'form-control'}) %>
+    <%= f.collection_select(:group_id, group_all, :id, :name, {}, {class: 'form-control'}) %>
   </div>
 
   <%= hidden_user(@user) %>

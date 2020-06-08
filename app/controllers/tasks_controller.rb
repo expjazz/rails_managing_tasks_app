@@ -10,7 +10,14 @@ class TasksController < ApplicationController
     user_id = params[:user_id]
     @task.status = status if status && user_id
     @task.user_id = user_id
-    redirect_to tasks_path if @task.save
+    if @task.save
+      redirect_to tasks_path
+      flash.now[:notice] = 'Your task was created with success.'
+    else
+      flash.now[:alert] = task_errors(@task)
+      @user = current_user
+      render 'tasks/new'
+    end
   end
 
   def index
@@ -45,6 +52,18 @@ class TasksController < ApplicationController
   end
 
   private
+
+  def task_errors(task)
+    if task.errors.full_messages.size > 1
+      a = "The following errors prevented you from saving the task: \n"
+      task.errors.full_messages.each do |e|
+        a += " - #{e} \n"
+      end
+      a
+    else
+      "The following errors prevented you from saving the task: #{task.errors.full_messages[0]}"
+    end
+  end
 
   def task_params
     params.require(:task).permit(:name, :user_id, :amount, :group_id, :status)

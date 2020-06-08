@@ -82,6 +82,11 @@ module ApplicationHelper
     end
   end
 
+  def group_all
+    Group.create(name: 'None', icon: '', user: current_user) unless Group.find_by(name: 'None')
+    Group.all
+  end
+
   def check_tasks_to_do(user)
     temp = false
     user.tasks.each do |item|

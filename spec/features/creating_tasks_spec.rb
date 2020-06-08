@@ -1,9 +1,9 @@
 require 'rails_helper'
-RSpec.describe 'Testing the login', type: :system do
-  feature 'creating a task' do
-    user = FactoryBot.create(:user)
+RSpec.describe 'Creating Tasks', type: :system do
+  let (:user) { FactoryBot.create(:user) }
+  let (:group) { FactoryBot.create(:group) }
+  feature 'With valid params' do
     task = FactoryBot.build(:task)
-    group = FactoryBot.create(:group)
     scenario 'With all the correct values' do
       visit root_path
       fill_in 'Email', with: user.email
@@ -15,6 +15,7 @@ RSpec.describe 'Testing the login', type: :system do
       fill_in 'Amount', with: task.amount
       find('#task_group_id').find(:xpath, 'option[1]').select_option
       click_on 'submit'
+      expect(page).to have_content(task.name)
     end
 
     scenario 'Without a name' do
@@ -42,6 +43,21 @@ RSpec.describe 'Testing the login', type: :system do
       find('#task_group_id').find(:xpath, 'option[1]').select_option
       click_on 'submit'
       expect(page).to have_content("Amount can't be blank")
+    end
+
+    scenario 'External task' do
+      task2 = FactoryBot.build(:task)
+      visit root_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: 'foobar'
+      find('#testlog').click
+      click_on 'See all external tasks'
+      click_on 'Add new'
+      fill_in 'Name', with: task2.name
+      fill_in 'Amount', with: task2.amount
+      find('#task_group_id').find('*', text: 'None').select_option
+      click_on 'submit'
+      expect(page).to have_content(task2.name)
     end
   end
 end

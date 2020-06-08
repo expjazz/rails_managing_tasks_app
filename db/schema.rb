@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_07_133105) do
+ActiveRecord::Schema.define(version: 2020_06_08_180058) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 2020_06_07_133105) do
     t.string "function"
   end
 
+  create_table "notices", force: :cascade do |t|
+    t.string "body"
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipient_id"], name: "index_notices_on_recipient_id"
+    t.index ["sender_id"], name: "index_notices_on_sender_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.integer "user_id", null: false
@@ -92,6 +102,8 @@ ActiveRecord::Schema.define(version: 2020_06_07_133105) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "groups", "users"
+  add_foreign_key "notices", "users", column: "recipient_id"
+  add_foreign_key "notices", "users", column: "sender_id"
   add_foreign_key "projects", "users"
   add_foreign_key "tasks", "users"
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notice/create'
   get 'projects/new'
   get 'projects/index'
   get 'projects/create'
@@ -20,5 +21,7 @@ Rails.application.routes.draw do
   get 'future_tasks', to: 'tasks#future'
   get 'mark_task_done', to: 'tasks#done'
   post 'done_post', to: 'tasks#done_post'
+  post 'managing_employees', to: 'notice#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  mount ActionCable.server, at: '/cable'
 end

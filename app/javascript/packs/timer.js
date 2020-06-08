@@ -17,6 +17,7 @@ setAmount.addEventListener("click", (e) => {
   setTimer.classList.add("btn-outline-success");
   amountShow();
   timerHide();
+  hiddenAmount.value = 0;
 });
 setTimer.addEventListener("click", (e) => {
   e.preventDefault();

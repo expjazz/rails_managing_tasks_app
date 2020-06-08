@@ -10,7 +10,7 @@ class TasksController < ApplicationController
     user_id = params[:user_id]
     @task.status = status if status && user_id
     @task.user_id = user_id
-    @task.amount = params[:amount_real] if params[:amount_real] != 0
+    @task.amount = params[:amount_real] if params[:amount_real] != '0'
     if @task.save
       redirect_to tasks_path
       flash.now[:notice] = 'Your task was created with success.'

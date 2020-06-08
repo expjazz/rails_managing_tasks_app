@@ -10,12 +10,8 @@
   </head>
 
   <body>
-<% if current_page?(user_path(current_user)) %>
+    <%= restrict_header %>
 
-<% else %>
-    <%= render 'layouts/header' %>
-
-<% end %>
     <div class="container-fluid bg-gray">
     <%= render 'layouts/messages'%>
 

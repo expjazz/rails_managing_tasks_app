@@ -30,6 +30,18 @@ module ApplicationHelper
     total
   end
 
+  def restrict_header
+    if user_signed_in?
+      render 'layouts/header' unless current_page?(user_path(current_user))
+    else
+      render 'layouts/header'
+    end
+  end
+
+  def notice_alerts
+    render 'notice/alerts' if user_signed_in?
+  end
+
   def total_group_time(group)
     total = 0
     group.tasks.each { |task| total += task.amount }

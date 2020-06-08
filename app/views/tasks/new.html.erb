@@ -5,8 +5,8 @@
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="d-flex">
-    <%= link_to 'Set value', '#', { class: 'btn btn-success', id: 'set-value' }%>
+  <div class="d-flex mb-3">
+    <%= link_to 'Set value', '#', { class: 'btn btn-success mr-4', id: 'set-value' }%>
     <%= link_to 'Set timer', '#', { class: 'btn btn-outline-success', id: 'set-timer' }%>
 </div>
    <div class="form-group"> 
@@ -14,8 +14,9 @@
      <%= f.text_field :amount, class: 'form-control', id: 'amount-to-hide' %> 
    </div> 
 
-   <div class="timer d-none">
-    <p id="timer"></p>
+   <div class="timer d-none form-group">
+    <p>Timer</p>
+    <p class='form-control font-weight-bold' id="timer"></p>
     <%= link_to "Start", '#', {class: 'btn btn-success', id: 'button-timer'} %>
    </div>
 

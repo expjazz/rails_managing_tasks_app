@@ -17,7 +17,9 @@
 
       <%= yield %>
  
-    <p id= <%= current_user.name %> ></p>
+    <div class= <%= username %> > 
+    <div id="notice-chatss"></div></div>
+    <%= render 'layouts/chat'%>
     </div>
   </body>
 </html>

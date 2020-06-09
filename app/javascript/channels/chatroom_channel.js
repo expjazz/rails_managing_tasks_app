@@ -1,45 +1,51 @@
-// import consumer from "./consumer";
+import consumer from "./consumer";
 
-// document.addEventListener("turbolinks:load", () => {
-//   const chatroom_id = document.getElementById("chatroom_id").value;
+document.addEventListener("turbolinks:load", () => {
+  // const chatroom_id = document.getElementById("chatroom_id").value;
 
-//   console.log("test");
+  console.log("test");
 
-//   consumer.subscriptions.subscriptions.forEach((subscription) => {
-//     consumer.subscriptions.remove(subscription);
-//   });
+  consumer.subscriptions.subscriptions.forEach((subscription) => {
+    consumer.subscriptions.remove(subscription);
+  });
 
-//   consumer.subscriptions.create(
-//     { channel: "ChatroomChannel", chatroom_id: chatroom_id },
-//     {
-//       connected() {
-//         console.log("Connected to" + chatroom_id);
-//       },
+  consumer.subscriptions.create(
+    { channel: "ChatroomChannel", chatroom_id: 1 },
+    {
+      connected() {
+        console.log("Connected to");
+      },
 
-//       disconnected() {
-//         // Called when the subscription has been terminated by the server
-//       },
+      disconnected() {
+        // Called when the subscription has been terminated by the server
+      },
 
-//       received(data) {
-//         let list = [];
-//         list.push(data.user.name);
-//         list.push(data.recipient.name);
-//         let b = document.getElementById(data.recipient.id);
-//         let c = document.getElementById("current_user").value;
-//         let a = document.getElementById(c);
+      received(data) {
+        let currentUser = document.getElementById("notice-chatss").parentElement
+          .classList;
+        let sender = data.sender.username;
+        let recipient = data.recipient.username;
 
-//         if (
-//           document.getElementById(data.user.name) != nil ||
-//           document.getElementById(data.recipient.user.name) != nil
-//         ) {
-//           a.parentElement.innerHTML +=
-//             "<p>" + data.user.name + ":" + data.notice.body + "</p>";
-//         } //     "<p>" + data.user + ":" + data.message + "</p>";
-//         // alert("b");
-//       },
-//     }
-//   );
-// });
+        console.log(sender);
+        console.log(recipient);
+        console.log(currentUser);
+        if (sender === currentUser[0] || recipient === currentUser[0]) {
+          let chatWindow = document.getElementById("chat-default");
+          chatWindow.classList.remove("d-none");
+          chatWindow.innerHTML += "<p>" + data.notice.body + "</p>";
+          let formFluid = document.getElementById("chat-form-fluid");
+          formFluid.action = "./notice_create";
+          let newRecipient = document.getElementById("notice_recipient_id");
+          if (sender === currentUser[0]) {
+            newRecipient.value = data.recipient.id;
+          } else if (recipient === currentUser[0]) {
+            newRecipient.value = data.sender.id;
+          }
+        }
+      },
+    }
+  );
+});
 
 // // list.includes(document.getElementById("user").value) &&
 // //       list.includes(document.getElementById("recipient").value

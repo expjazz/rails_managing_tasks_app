@@ -15,44 +15,26 @@ import "bootstrap";
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-// document.addEventListener("DOMContentLoaded", init);
+document.addEventListener("DOMContentLoaded", init);
 
-// function init() {
-//   const targetNode = document.getElementById("notice-chat");
-//   const config = { attributes: true, childList: true, subtree: true };
-//   let count = targetNode.childElementCount;
-//   let count2 = 0;
-//   let chatForm = document.getElementById("chat-form");
-//   let notification = document.getElementById("notification");
-//   let chatBtn = document.getElementById("chat-btn");
-//   if (chatBtn != null) {
-//     chatBtn.addEventListener("click", (e) => {
-//       notification.parentElement.parentElement.classList.remove("d-none");
-//     });
-//   }
-//   const callback = function (mutationsList, observer) {
-//     for (let mutation of mutationsList) {
-//       if (
-//         mutation.type === "childList" &&
-//         targetNode.childElementCount > count
-//       ) {
-//         notification.parentElement.parentElement.classList.remove("d-none");
-//         count += 1;
-//         count2 += count + 1 - targetNode.childElementCount;
-//         chatForm.action = "/managing_employees";
-//         document.querySelector(
-//           "#notification span"
-//         ).textContent = ` (${count2})`;
-//         console.log("A child node has been added or removed.");
-//       } else if (mutation.type === "attributes") {
-//         console.log(
-//           "The " + mutation.attributeName + " attribute was modified."
-//         );
-//       }
-//     }
-//   };
+function init() {
+  const targetNode = document.getElementById("notice-chat");
+  const config = { attributes: true, childList: true, subtree: true };
 
-//   const observer = new MutationObserver(callback);
+  const callback = function (mutationsList, observer) {
+    for (let mutation of mutationsList) {
+      if (
+        mutation.type === "childList" &&
+        targetNode.childElementCount > count
+      ) {
+        console.log("a");
+      } else if (mutation.type === "attributes") {
+        console.log("a");
+      }
+    }
+  };
 
-//   observer.observe(targetNode, config);
-// }
+  const observer = new MutationObserver(callback);
+
+  observer.observe(targetNode, config);
+}

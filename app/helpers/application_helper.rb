@@ -30,6 +30,10 @@ module ApplicationHelper
     total
   end
 
+  def username
+    current_user.username if user_signed_in?
+  end
+
   def restrict_header
     if user_signed_in?
       render 'layouts/header' unless current_page?(user_path(current_user))

@@ -1,6 +1,6 @@
 <% User.all.each do |user| %>
   <% next if user == current_user %>
- <div class="media border">
+ <div class="media border d-none">
   <%= user_image_small(user) %>
     <div class="media-body">
         <h5 class="mt-0 title font-weight-bold" id='notification'>

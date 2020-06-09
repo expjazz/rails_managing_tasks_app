@@ -113,12 +113,12 @@ module ApplicationHelper
   end
 
   def group_all
-    Group.create(name: 'None', icon: '', user: current_user) unless Group.find_by(name: 'None')
+    Group.create(name: 'None', icon: '', user: User.first) unless Group.find_by(name: 'None')
     Group.all
   end
 
   def project_all
-    Project.create(name: 'None', user: current_user) unless Project.find_by(name: 'None')
+    Project.create(name: 'None', user: User.first) unless Project.find_by(name: 'None')
     Project.all
   end
 

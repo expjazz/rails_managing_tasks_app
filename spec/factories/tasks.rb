@@ -1,7 +1,6 @@
 FactoryBot.define do
   factory :task do
-    name { 'MyString' }
-    amount { 100 }
-    user { nil }
+    name { 'MyTask' }
+    amount { [0, 2, 30, 4000, 40, 300, 23].sample }
   end
 end

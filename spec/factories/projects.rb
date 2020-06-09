@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :project do
-    name { "MyString" }
-    user { nil }
+    name { Faker::FunnyName.name }
+    user { FactoryBot.create(:user) }
   end
 end

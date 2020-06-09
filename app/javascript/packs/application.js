@@ -18,20 +18,24 @@ import "bootstrap";
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
-  const targetNode = document.getElementById("notice-container");
+  const targetNode = document.getElementById("notice-chat");
   console.log(targetNode);
   const config = { attributes: true, childList: true, subtree: true };
   let count = targetNode.childElementCount;
   let count2 = 0;
+  let notification = document.getElementById("notification");
   const callback = function (mutationsList, observer) {
     for (let mutation of mutationsList) {
       if (
         mutation.type === "childList" &&
         targetNode.childElementCount > count
       ) {
+        notification.parentElement.parentElement.classList.remove("d-none");
         count += 1;
-        count2 = count + 1 - targetNode.childElementCount;
-        targetNode.parentElement.firstElementChild.textContent += ` (${count2})`;
+        count2 += count + 1 - targetNode.childElementCount;
+        document.querySelector(
+          "#notification span"
+        ).textContent = ` (${count2})`;
         console.log("A child node has been added or removed.");
       } else if (mutation.type === "attributes") {
         console.log(

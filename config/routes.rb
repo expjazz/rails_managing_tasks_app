@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'mark_task_done', to: 'tasks#done'
   post 'done_post', to: 'tasks#done_post'
   post 'managing_employees', to: 'notice#create'
+  post 'notice_create', to: 'notice#create'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   mount ActionCable.server, at: '/cable'
 end

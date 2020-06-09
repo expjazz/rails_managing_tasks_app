@@ -10,7 +10,7 @@ consumer.subscriptions.create("NoticeChannel", {
   },
 
   received(data) {
-    document.getElementById("notice-container").innerHTML +=
-      '<a href="#" class="dropdown-item">' + data.foo + "</a>";
+    document.getElementById("notice-chat").innerHTML +=
+      "<p>" + data.foo + "</p>";
   },
 });

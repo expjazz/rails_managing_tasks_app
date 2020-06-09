@@ -76,6 +76,10 @@ module ApplicationHelper
     end
   end
 
+  def message_chat(user)
+    Notice.find_by(sender: user)
+  end
+
   def manage_employee(user)
     if user.profile_type == 'Manager'
       render 'users/manager'

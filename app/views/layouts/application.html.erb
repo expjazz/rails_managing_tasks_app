@@ -16,11 +16,8 @@
     <%= render 'layouts/messages'%>
 
       <%= yield %>
-    <div class="chat-container w-25">
-
-      <%= notice_alerts %>
-    </div>
-
+ 
+    <p id= <%= current_user.name %> ></p>
     </div>
   </body>
 </html>

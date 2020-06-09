@@ -25,6 +25,7 @@
     </div>
   </div>
   <div class="row">
-   <div class="col-12"> <%= button_tag 'Initiate a private chat', class: 'btn btn-success', id: 'chat-btn'%> </div> 
+   <div class="col-12"> <%= link_to 'Initiate a private chat', new_chat_path, method: :post, remote: true, class: 'btn btn-success', id: 'chat-btn'%> </div> 
+    <div id="chat-container"></div>
   </div>
 <% end %>

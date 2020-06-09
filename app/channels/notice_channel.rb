@@ -1,6 +1,6 @@
 class NoticeChannel < ApplicationCable::Channel
   def subscribed
-    stream_from 'notice_channel'
+    # stream_from 'notice_channel'
   end
 
   def unsubscribed

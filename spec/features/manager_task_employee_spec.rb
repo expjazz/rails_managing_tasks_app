@@ -21,16 +21,16 @@ RSpec.describe 'Creating Tasks', type: :system do
       click_on 'submit'
       expect(page).to have_content(task.name)
     end
-  end
 
-  feature 'employee notification task' do
-    task = FactoryBot.create(:task, user: user, status: false)
-    visit root_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'foobar'
-    find('#testlog').click
-    click_on 'See all my tasks'
-    click_on 'You have one new task assigned by your manager'
-    expect(page).to have_content(task.name)
+    scenario 'employee notification task' do
+      task = FactoryBot.create(:task, user: user, status: false)
+      visit root_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: 'foobar'
+      find('#testlog').click
+      click_on 'See all my tasks'
+      click_on 'You have one new task assigned by your manager'
+      expect(page).to have_content(task.name)
+    end
   end
 end

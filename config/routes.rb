@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   post 'done_post', to: 'tasks#done_post'
   post 'managing_employees', to: 'notice#create'
   post 'notice_create', to: 'notice#create'
+  resources :notice
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   mount ActionCable.server, at: '/cable'

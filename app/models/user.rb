@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def external_tasks(tasks)
-    tasks.select { |t| t.group_id.nil? && t.user_id == id } || []
+    tasks.select { |t| t.group.name == 'None' && t.user_id == id } || []
   end
 
   def format_duration(seconds)

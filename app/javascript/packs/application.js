@@ -23,6 +23,7 @@ function init() {
   const config = { attributes: true, childList: true, subtree: true };
   let count = targetNode.childElementCount;
   let count2 = 0;
+  let chatForm = document.getElementById("chat-form");
   let notification = document.getElementById("notification");
   const callback = function (mutationsList, observer) {
     for (let mutation of mutationsList) {
@@ -33,6 +34,7 @@ function init() {
         notification.parentElement.parentElement.classList.remove("d-none");
         count += 1;
         count2 += count + 1 - targetNode.childElementCount;
+        chatForm.action = "/managing_employees";
         document.querySelector(
           "#notification span"
         ).textContent = ` (${count2})`;
@@ -48,4 +50,8 @@ function init() {
   const observer = new MutationObserver(callback);
 
   observer.observe(targetNode, config);
+
+  let dataf = function () {
+    console.log(datas);
+  };
 }

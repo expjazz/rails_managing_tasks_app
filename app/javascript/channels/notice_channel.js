@@ -10,7 +10,13 @@ consumer.subscriptions.create("NoticeChannel", {
   },
 
   received(data) {
-    document.getElementById("notice-chat").innerHTML +=
-      "<p>" + data.foo + "</p>";
+    let list = [];
+    list.push(data.user);
+    list.push(data.recipient);
+    if (
+      list.includes(document.getElementById("user").value) &&
+      list.includes(document.getElementById("recipient").value)
+    )
+      alert(data.message);
   },
 });

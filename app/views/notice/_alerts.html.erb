@@ -14,11 +14,13 @@
           
         </p>
 
-        <%= form_with(scope: :notice, url: './notice_create', method: :post, local: true) do |f| %>
+        <%= form_with(scope: :notice, url: './notice_create', method: :post, id: 'chat-form') do |f| %>
               <div class="form-group">
                  <%= f.label :body %>
                  <%= f.text_field :body, class: 'form-control' %>
                </div>
+              <%= hidden_field_tag :user, current_user.name %>
+              <%= hidden_field_tag :recipient, user.name %>
 
               <%= f.hidden_field :recipient_id, :value => user.id %>
           <% end %>

@@ -3,9 +3,10 @@ class NoticeController < ApplicationController
     notice = current_user.alert_sent.build(notice_params)
     if notice.save
       ActionCable.server.broadcast 'notice_channel',
-                                   foo: notice.body
+                                   message: notice.body,
+                                   user: notice.sender.name,
+                                   recipient: notice.recipient.name
     end
-    redirect_to root_path
   end
 
   private

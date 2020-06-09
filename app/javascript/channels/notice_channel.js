@@ -17,6 +17,7 @@ consumer.subscriptions.create("NoticeChannel", {
       list.includes(document.getElementById("user").value) &&
       list.includes(document.getElementById("recipient").value)
     )
-      alert(data.message);
+      document.getElementById("notice-chat").innerHTML +=
+        "<p>" + data.user + ":" + data.message + "</p>";
   },
 });

@@ -10,7 +10,7 @@ require("channels");
 import "bootstrap";
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
+// or the `imagePath` JavaScript helper below.  let dataf = function () {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
@@ -25,6 +25,12 @@ function init() {
   let count2 = 0;
   let chatForm = document.getElementById("chat-form");
   let notification = document.getElementById("notification");
+  let chatBtn = document.getElementById("chat-btn");
+  if (chatBtn != null) {
+    chatBtn.addEventListener("click", (e) => {
+      notification.parentElement.parentElement.classList.remove("d-none");
+    });
+  }
   const callback = function (mutationsList, observer) {
     for (let mutation of mutationsList) {
       if (
@@ -50,8 +56,4 @@ function init() {
   const observer = new MutationObserver(callback);
 
   observer.observe(targetNode, config);
-
-  let dataf = function () {
-    console.log(datas);
-  };
 }

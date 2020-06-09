@@ -25,15 +25,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-12">
-                <%= form_with(scope: :notice, method: :post) do |f| %>
-              <div class="form-group">
-                 <%= f.label :body %>
-                 <%= f.text_field :body, class: 'form-control' %>
-               </div>
-
-              <%= f.hidden_field :recipient_id, :value => employee.id %>
-          <% end %>
-    </div>
+   <div class="col-12"> <%= button_tag 'Initiate a private chat', class: 'btn btn-success', id: 'chat-btn'%> </div> 
   </div>
 <% end %>

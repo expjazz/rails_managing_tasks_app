@@ -1,9 +1,9 @@
 require 'rails_helper'
 RSpec.describe 'Creating Tasks', type: :system do
-  let (:user) { FactoryBot.create(:user, profile: Manager.create(function: 'CEO')) }
-  let (:user2) { FactoryBot.create(:user) }
+  let(:user) { FactoryBot.create(:user, profile: Manager.create(function: 'CEO')) }
+  let(:user2) { FactoryBot.create(:user) }
 
-  let (:group) { FactoryBot.create(:group) }
+  let(:group) { FactoryBot.create(:group) }
   feature 'Create a new task' do
     task = FactoryBot.build(:task)
     scenario 'With all the correct values' do
@@ -21,3 +21,16 @@ RSpec.describe 'Creating Tasks', type: :system do
       click_on 'submit'
       expect(page).to have_content(task.name)
     end
+  end
+
+  feature 'employee notification task' do
+    task = FactoryBot.create(:task, user: user, status: false)
+    visit root_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'foobar'
+    find('#testlog').click
+    click_on 'See all my tasks'
+    click_on 'You have one new task assigned by your manager'
+    expect(page).to have_content(task.name)
+  end
+end

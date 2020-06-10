@@ -14,27 +14,3 @@ import "bootstrap";
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-document.addEventListener("DOMContentLoaded", init);
-
-function init() {
-  const targetNode = document.getElementById("notice-chat");
-  const config = { attributes: true, childList: true, subtree: true };
-
-  const callback = function (mutationsList, observer) {
-    for (let mutation of mutationsList) {
-      if (
-        mutation.type === "childList" &&
-        targetNode.childElementCount > count
-      ) {
-        console.log("a");
-      } else if (mutation.type === "attributes") {
-        console.log("a");
-      }
-    }
-  };
-
-  const observer = new MutationObserver(callback);
-
-  observer.observe(targetNode, config);
-}

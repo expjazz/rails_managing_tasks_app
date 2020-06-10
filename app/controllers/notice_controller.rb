@@ -9,7 +9,8 @@ class NoticeController < ApplicationController
                                    message: 'Hello',
                                    sender: @notice.sender,
                                    recipient: @notice.recipient,
-                                   notice: @notice
+                                   notice: @notice,
+                                   date: @notice.created_at.to_date
     end
   end
 

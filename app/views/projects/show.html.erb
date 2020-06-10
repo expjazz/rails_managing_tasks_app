@@ -1,5 +1,7 @@
+<div class="container">
+
 <div class="row">
-  <div class="col-12 p-0">
+  <div class="col-12">
     <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
       <h6 class="h6 text-muted">
         These are how much time you spent on tasks from this project. <span class='text-capitalize font-weight-bold'><%= @project.name %></span>
@@ -37,4 +39,4 @@
   <div class="col-12">
     <%= link_to "Add new", new_group_path(:project_id => @project.id ), class: 'btn btn-success w-100'%>
   </div>
-</div>
+</div></div>

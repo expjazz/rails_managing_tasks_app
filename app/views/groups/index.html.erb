@@ -1,29 +1,31 @@
-<div class="container-fluid w-100 vh-100 bg-darkblue">
+<div class="container-fluid w-100 bg-darkblue">
     <%= header_two %>
 
 
 
-  <div class="row">
-    <div class="col-6 mx-auto text-center d-flex flex-column align-items-center">
+
 
       <% @groups.each do |group| %>
       <% next if group.name == 'None'%>
+        <div class="row">
+    <div class="col-6 mx-auto text-center d-flex flex-column align-items-center">
       <%= link_to group_path(group), class: 'w-360' do %>
         <div class="cont border-bottom d-flex flex-column my-3 pb-2">
           <div class="d-flex align-items-baseline justify-content-center">
-            <%= fa_icon group.icon, class: 'f-s-2 text-white' %> <p class='text-white h5'> <%= group.name %> </p> 
+            <%= fa_icon group.icon, class: 'f-s-2 text-white mr-4' %> <p class='text-white h3 sm-h4'> <%= group.name %> </p> 
           </div>
            <div class="d-flex align-items-baseline justify-content-center">
-              <small class='text-white'> Created: <%= group.created_at.strftime("%B, %d, %Y") %> </small> 
+              <small class='text-white h6 sm-h5'> Created: <%= group.created_at.strftime("%B, %d, %Y") %> </small> 
           </div>     
            <div class="d-flex align-items-baseline justify-content-center">
-              <small class='text-white'> Project: <%= group.project.name %> </small> 
+              <small class='text-white h6 sm-h5'> Project: <%= group.project.name %> </small> 
           </div>      
           </div>   
+              </div>
+  </div>
         <% end %>
       <% end %>
-    </div>
-  </div>
+
 
 <div class="row">
   <div class="col-12 text-center">

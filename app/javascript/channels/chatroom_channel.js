@@ -25,20 +25,22 @@ document.addEventListener("turbolinks:load", () => {
           .classList;
         let sender = data.sender.username;
         let recipient = data.recipient.username;
+        let normalChat = document.getElementById("normalChat");
 
-        console.log(sender);
-        console.log(recipient);
-        console.log(currentUser);
         if (sender === currentUser[0] || recipient === currentUser[0]) {
           let chatWindow = document.getElementById("chat-default");
           chatWindow.classList.remove("d-none");
-          chatWindow.innerHTML += "<p>" + data.notice.body + "</p>";
+          chatWindow.innerHTML +=
+            "<p>" + data.sender.name + ":" + data.notice.body + "</p>";
+          let count = 0;
+          let count2 = 0;
           let formFluid = document.getElementById("chat-form-fluid");
           formFluid.action = "./notice_create";
           let newRecipient = document.getElementById("notice_recipient_id");
-          if (sender === currentUser[0]) {
-            newRecipient.value = data.recipient.id;
-          } else if (recipient === currentUser[0]) {
+          if (sender === currentUser[0] && count === 0) {
+            count++;
+          } else if (recipient === currentUser[0] && count2 === 0) {
+            count2++;
             newRecipient.value = data.sender.id;
           }
         }

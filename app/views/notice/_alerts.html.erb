@@ -2,7 +2,7 @@
   <% next if user == current_user %>
  <div class="media border">
 
-
+  <p id='normalChat'></p>
   <%= user_image_small(user) %>
     <div class="media-body">
         <h5 class="mt-0 title font-weight-bold" id='notification'>
@@ -22,7 +22,6 @@
                </div>
 
               <%= hidden_field_tag :chatroom_id, Chatroom.last.id %>
-              <%= hidden_field_tag :recipient, user.id %>
 
 
               <%= f.hidden_field :recipient_id, :value => user.id %>

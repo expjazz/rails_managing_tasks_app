@@ -1,1 +1,7 @@
-document.querySelector('#chat-container').innerHTML = " <%= j render 'notice/alerts.html.erb'%> "
+let chatWindow = document.getElementById("chat-default");
+            chatWindow.classList.remove("d-none");
+            let recipiendId = "<%= test %>"
+            let newRec = document.getElementById("notice_recipient_id")
+            newRec.value = recipiendId
+            console.log('success')
+<%# document.querySelector('#chat-container').innerHTML = " <%= j render 'notice/alerts.html.erb'%>

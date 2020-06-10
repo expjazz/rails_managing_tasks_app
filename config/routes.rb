@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   post 'done_post', to: 'tasks#done_post'
   post 'managing_employees', to: 'notice#create'
   post 'notice_create', to: 'notice#create'
-  post 'new_chat', to: 'chats#create'
+  post '/new_chat/:id', to: 'chats#create'
+
   resources :notice
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

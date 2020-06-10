@@ -10,7 +10,13 @@ class TasksController < ApplicationController
     user_id = params[:user_id]
     @task.status = status if status && user_id
     @task.user_id = user_id
-    @task.amount = params[:amount_real] if params[:amount_real] != '0'
+    minutes = params[:task][:minutes].to_i
+    hours = params[:task][:hours].to_i
+    @task.amount = if params[:amount_real] != '0'
+                     params[:amount_real]
+                   else
+                     amount_counter(minutes, hours)
+                   end
     if @task.save
       redirect_to tasks_path
       flash.now[:notice] = 'Your task was created with success.'
@@ -67,7 +73,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :user_id, :amount, :group_id, :status)
+    params.require(:task).permit(:name, :user_id, :group_id, :status)
   end
 
   def past_tasks(tasks)
@@ -76,5 +82,9 @@ class TasksController < ApplicationController
 
   def future_tasks(tasks)
     tasks.select { |task| task.status == false }
+  end
+
+  def amount_counter(minutes, hours)
+    hours * (60 * 60) + minutes * 60
   end
 end

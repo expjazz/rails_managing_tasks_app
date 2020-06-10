@@ -12,8 +12,11 @@
     <%= link_to 'Set timer', '#', { class: 'btn btn-outline-success', id: 'set-timer' }%>
   </div>
    <div class="form-group"> 
-    <%= f.label :amount %>
-     <%= f.text_field :amount, class: 'form-control', id: 'amount-to-hide' %> 
+    <%= f.label :minutes %>
+    <%= f.text_field :minutes, class: 'form-control', id: 'amount-to-hide' %> 
+    <%= f.label :hours %>
+    <%= f.text_field :hours, class: 'form-control', id: 'amount-to-hide' %> 
+
    </div> 
 
    <div class="timer d-none form-group">
@@ -41,4 +44,4 @@
 
 <%= javascript_pack_tag 'timer' %>
 
-</div>
+</div></div>

@@ -36,14 +36,16 @@ module ApplicationHelper
 
   def restrict_header
     if user_signed_in?
-      render 'layouts/header' unless current_page?(user_path(current_user)) || current_page?(groups_path)
+      unless current_page?(user_path(current_user)) || current_page?(groups_path) || current_page?(projects_path)
+        render 'layouts/header'
+      end
     else
       render 'layouts/header'
     end
   end
 
   def header_two
-    render 'layouts/header_two' if current_page?(groups_path)
+    render 'layouts/header_two' if current_page?(groups_path) || current_page?(projects_path)
   end
 
   def notice_alerts
@@ -54,6 +56,14 @@ module ApplicationHelper
     total = 0
     groups.each { |task| total += task.amount }
     total
+  end
+
+  def no_group(list)
+    render 'groups/nogroups' if list.empty? || list.size == 1
+  end
+
+  def no_project(list)
+    render 'projects/noproject' if list.empty? || list.size == 1
   end
 
   def group_icon(task)

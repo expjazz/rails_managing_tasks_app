@@ -29,9 +29,21 @@ document.addEventListener("turbolinks:load", () => {
 
         if (sender === currentUser[0] || recipient === currentUser[0]) {
           let chatWindow = document.getElementById("chat-default");
-          chatWindow.classList.remove("d-none");
-          chatWindow.innerHTML +=
-            "<p>" + data.sender.name + ":" + data.notice.body + "</p>";
+          let dNone = document.getElementById("dis-none");
+          dNone.classList.remove("d-none");
+          chatWindow.innerHTML += ` <div class="card-body msg_card_body">
+          <div class="d-flex justify-content-start mb-4">
+            <div class="img_cont_msg">
+              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+            </div>
+            <div class="msg_cotainer">
+              ${data.sender.name}: ${data.notice.body}
+              <span class="msg_time">8:40 AM, Today</span>
+            </div>
+          </div>
+          </div>`;
+          // "<p>" + data.sender.name + ":" + data.notice.body + "</p>"
+
           let count = 0;
           let count2 = 0;
           let formFluid = document.getElementById("chat-form-fluid");

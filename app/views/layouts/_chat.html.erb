@@ -1,28 +1,64 @@
+				<div class="col-md-8 col-xl-6 chat d-none" id='dis-none'>
+					<div class="card" id='chat-defaul'>
+						<div class="card-header msg_head">
+							<div class="d-flex bd-highlight">
+								<div class="img_cont">
+									<img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+									<span class="online_icon"></span>
+								</div>
+								<div class="user_info">
+									<span>Chat with Khalid</span>
+									<p>1767 Messages</p>
+								</div>
+								<div class="video_cam">
+									<span><i class="fas fa-video"></i></span>
+									<span><i class="fas fa-phone"></i></span>
+								</div>
+							</div>
+            </div>
+            <div class="append scroll h-50" id="chat-default">
 
- <div class="media border d-none" id='chat-default'>
+              </div>
+              <div class="card-footer">
+							<div class="input-group">
+								<div class="input-group-append">
+									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
+								</div>
+                            <%= form_with(scope: :notice, url: './notice_create', method: :post, id: 'chat-form-fluid') do |f| %>
 
+                 <%= f.text_field :body, class: 'form-control type_msg' %>
 
-    <div class="media-body">
-        <h5 class="mt-0 title font-weight-bold" id='notification'>
-          
-        </h5>
-        <div class="sub-title" id= 'notice-chat'>
-          <%# <%= messages_sent %>
-
-          
-        </div>
-
-        <%= form_with(scope: :notice, url: './notice_create', method: :post, id: 'chat-form-fluid') do |f| %>
-              <div class="form-group">
-                 <%= f.label :body %>
-                 <%= f.text_field :body, class: 'form-control' %>
-               </div>
-
-              <%# <%= hidden_field_tag :chatroom_id, Chatroom.last.id %> %>
-              <%# <%= hidden_field_tag :recipient, user.id %> %>
+              <%# <%= hidden_field_tag :chatroom_id, Chatroom.last.id %>
+              <%# <%= hidden_field_tag :recipient, user.id %>
 
 
               <%= f.hidden_field :recipient_id, :value => 1 %> 
           <% end %>
-      </div>
-</div>
+								<div class="input-group-append">
+									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
+								</div>
+							</div>
+						</div>
+              </div>
+              </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+             
+

@@ -27,7 +27,7 @@
     <div class="col-12">
         <div class="media bg-white shadow-sm border p-2">
           <div class="media-body">
-            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= group.name%> </p> <p class="m-0 p-0"> <%=  current_user.format_duration(total_group_time(group)) %> </p>  </div>
+            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <%= group.name%> </p> <p class="m-0 p-0"> <%=  current_user.format_duration(total_group_time(group.tasks)) %> </p>  </div>
             <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"> <%= group.created_at.to_date %> </p> <p class="m-0 p-0 text-muted"> <%=  group.name if group %> </p>   </div>
           </div>
         </div>

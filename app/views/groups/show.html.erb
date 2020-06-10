@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="col-12">
-    <div class="d-flex justify-content-between bg-white shadow-sm p-3 border">
+    <div class="d-flex flex-column flex-md-row justify-content-between bg-white shadow-sm p-3 border">
       <h6 class="h6 text-muted">
         Total Time spent on your tasks from the group: <span class='text-capitalize font-weight-bold'><%= @group.name %></span>
       </h6>
@@ -19,9 +19,9 @@
         <%= group_icon(task) %>
 
           <div class="media-body">
-            <div class="d-flex justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <span class='font-weight-bold'>Name:</span>  <%= task.name%> </p> <p class="m-0 p-0"> <span class='font-weight-bold'>Duration:</span>  <%=  current_user.format_duration(task.amount) %> </p>  </div>
-            <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'>Date of execution:</span> <%= task.created_at.strftime("%B, %d, %Y") %> </p> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'> Group: </span><%=  task.group.name if task.group %> </p>   </div>
-            <div class="d-flex justify-content-between pt-1"> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'>Task completed by:</span> <%= task.user.name %> </p> <p class="m-0 p-0 text-muted d-none"><span class='font-weight-bold d-none'> Group: </span><%=  task.group.name if task.group %> </p>   </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between pt-2"> <p class="m-0 p-0 text-muted"> <span class='font-weight-bold'>Name:</span>  <%= task.name%> </p> <p class="m-0 p-0"> <span class='font-weight-bold'>Duration:</span>  <%=  current_user.format_duration(task.amount) %> </p>  </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between pt-1"> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'>Date of execution:</span> <%= task.created_at.strftime("%B, %d, %Y") %> </p> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'> Group: </span><%=  task.group.name if task.group %> </p>   </div>
+            <div class="d-flex flex-column flex-md-row justify-content-between pt-1"> <p class="m-0 p-0 text-muted"><span class='font-weight-bold'>Task completed by:</span> <%= task.user.name %> </p> <p class="m-0 p-0 text-muted d-none"><span class='font-weight-bold d-none'> Group: </span><%=  task.group.name if task.group %> </p>   </div>
 
           </div>
         </div>

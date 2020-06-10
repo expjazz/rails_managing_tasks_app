@@ -36,10 +36,14 @@ module ApplicationHelper
 
   def restrict_header
     if user_signed_in?
-      render 'layouts/header' unless current_page?(user_path(current_user))
+      render 'layouts/header' unless current_page?(user_path(current_user)) || current_page?(groups_path)
     else
       render 'layouts/header'
     end
+  end
+
+  def header_two
+    render 'layouts/header_two' if current_page?(groups_path)
   end
 
   def notice_alerts

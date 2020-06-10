@@ -50,9 +50,9 @@ module ApplicationHelper
     render 'notice/alerts' if user_signed_in?
   end
 
-  def total_group_time(group)
+  def total_group_time(groups)
     total = 0
-    group.tasks.each { |task| total += task.amount }
+    groups.each { |task| total += task.amount }
     total
   end
 

@@ -4,6 +4,8 @@
   color: gold;
 }
 
+$enable-responsive-font-sizes: true;
+
 .bg-gradblue {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#3d7cbf+35,066dab+96 */
   background: rgb(61, 124, 191); /* Old browsers */
@@ -102,5 +104,17 @@ $space-amounts: (1, 2, 3, 4, 5);
   }
   .f-s-#{$space} {
     font-size: #{$space}rem;
+  }
+}
+
+@media only screen and (max-width: 799px) {
+  .sm-h1 {
+    font-size: 2.5rem !important;
+  }
+  .sm-h2 {
+    font-size: 1.7rem !important;
+  }
+  .sm-w-100 {
+    width: 65% !important;
   }
 }

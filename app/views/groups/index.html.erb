@@ -9,7 +9,7 @@
       <% @groups.each do |group| %>
       <% next if group.name == 'None'%>
       <%= link_to group_path(group), class: 'w-360' do %>
-        <div class="cont border-bottom d-flex flex-column m-3 pb-2">
+        <div class="cont border-bottom d-flex flex-column my-3 pb-2">
           <div class="d-flex align-items-baseline justify-content-center">
             <%= fa_icon group.icon, class: 'f-s-2 text-white' %> <p class='text-white h5'> <%= group.name %> </p> 
           </div>
@@ -26,8 +26,8 @@
   </div>
 
 <div class="row">
-  <div class="col-12">
-    <%= link_to "Add new", new_group_path, class: 'btn btn-success w-100'%>
+  <div class="col-12 text-center">
+    <%= link_to "Add new", new_group_path, class: 'btn btn-success w-360'%>
   </div>
 </div>
 </div>

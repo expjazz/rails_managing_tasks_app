@@ -18,7 +18,7 @@ An app that lets you register tasks and group them in two levels, allowing one c
 
 ## Live demo
 
-![Check it out](https://intense-earth-68762.herokuapp.com/)
+[Check it out](https://intense-earth-68762.herokuapp.com/)
 
 ## Built With
 
@@ -49,6 +49,17 @@ To get a local copy up and running follow these simple example steps.
 - Open your terminal and type in 'rails db:migrate'
 - Type 'rails server' on your terminal
 - Try out creating a profiler as a manager or employee
+
+#### Tests
+- All tests were built with Rspec. To test all the features, type 'rspec' on the terminal.
+
+#### What can it do
+- It allows a manager to track the tasks of his team.
+- It has a private chat from a manager to an employee.
+- It has a timer so you can track your tasks real time.
+
+#### Check the ERD
+![ERD](./erd.png)
 
 ## Author
 

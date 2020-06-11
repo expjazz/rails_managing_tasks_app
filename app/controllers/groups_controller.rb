@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
   end
 
   def index
-    @groups = Group.alphabetical
+    @groups = Group.alphabetical.includes([:project])
   end
 
   def show

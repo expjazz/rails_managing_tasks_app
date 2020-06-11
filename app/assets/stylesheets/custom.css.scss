@@ -101,23 +101,23 @@ $enable-responsive-font-sizes: true;
 }
 
 .f-s-1 {
-  font-size: #{$space}rem;
+  font-size: 1rem;
 }
 
 .f-s-2 {
-  font-size: #{$space}rem 0;
+  font-size: 2rem;
 }
 
 .f-s-3 {
-  font-size: 0 #{$space}rem;
+  font-size: 3rem;
 }
 
 .f-s-4 {
-  font-size: #{$space}rem;
+  font-size: 4rem;
 }
 
 .f-s-5 {
-  font-size: #{$space}rem;
+  font-size: 5rem;
 }
 
 @media only screen and (max-width: 450px) {

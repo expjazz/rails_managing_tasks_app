@@ -7,11 +7,6 @@ module ProjectsHelper
     total
   end
 
-  def group_all
-    Group.create(name: 'None', icon: '', user: User.first) unless Group.find_by(name: 'None')
-    Group.all
-  end
-
   def no_project(list)
     render 'projects/noproject' if list.empty? || list.size == 1
   end

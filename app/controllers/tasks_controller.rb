@@ -29,7 +29,7 @@ class TasksController < ApplicationController
 
   def index
     @user = params[:user_id] ? User.find(params[:user_id]) : current_user
-    @all_tasks = if @user == current_user
+    @all_tasks = if @user == current_user && Task.most_recent.size > 1
                    Task.most_recent.includes([:group])
                  else
                    Task.most_recent

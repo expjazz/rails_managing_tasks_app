@@ -1,7 +1,5 @@
 import consumer from "./consumer";
-
-// const chatroom_id = document.getElementById("chatroom_id").value;
-
+document.addEventListener("turbolinks:load", function() {
 consumer.subscriptions.subscriptions.forEach((subscription) => {
   consumer.subscriptions.remove(subscription);
 });
@@ -52,7 +50,6 @@ consumer.subscriptions.create(
             </div>
             </div>`; 
           }
-        // "<p>" + data.sender.name + ":" + data.notice.body + "</p>"
 
         let count = 0;
         let count2 = 0;
@@ -84,13 +81,5 @@ consumer.subscriptions.create(
       submit_message();
     },
   }
-);
+);})
 
-// // list.includes(document.getElementById("user").value) &&
-// //       list.includes(document.getElementById("recipient").value
-// // if (true) {
-// //   html = data.html;
-// // }
-// // notice.parentElement.innerHTML += html;
-// // },
-// // }

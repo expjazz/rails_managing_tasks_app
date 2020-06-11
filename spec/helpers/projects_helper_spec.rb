@@ -37,11 +37,11 @@ RSpec.describe ProjectsHelper, type: :helper do
     end
   end
 
-  describe 'total_time_group' do
+  describe 'total_group_time' do
     it 'returns total time of the tasks from a group' do
       group_one.tasks << task_one
-      group_two.tasks << task_two
-      expect(helper.total_group_time(group_one)).to eq(task_one.amount)
+      group_one.tasks << task_two
+      expect(helper.total_group_time(group_one.tasks)).to eq(task_one.amount + task_two.amount)
     end
   end
 
@@ -75,7 +75,7 @@ RSpec.describe ProjectsHelper, type: :helper do
     end
 
     it 'should create a new group with the name of None' do
-      helper.group_all
+      helper.group_all(FactoryBot.create(:user))
       group_none = Group.find_by(name: 'None')
       expect(Group.all.include?(group_none)).to be(true)
     end
@@ -87,7 +87,7 @@ RSpec.describe ProjectsHelper, type: :helper do
     end
 
     it 'should create a new group with the name of None' do
-      helper.project_all
+      helper.project_all(FactoryBot.create(:user))
       project_none = Project.find_by(name: 'None')
       expect(Project.all.include?(project_none)).to be(true)
     end

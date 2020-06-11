@@ -21,8 +21,9 @@ module GroupsHelper
     fa_icon icon, class: 'f-s-3'
   end
 
-  def group_all
-    Group.create(name: 'None', icon: '', user: User.first) unless Group.find_by(name: 'None')
+  def group_all(user = nil)
+    user = User.first if user.nil?
+    Group.create(name: 'None', icon: '', user: user) unless Group.find_by(name: 'None')
     Group.all
   end
 end

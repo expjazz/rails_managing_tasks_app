@@ -1,5 +1,10 @@
 @import "bootstrap/dist/css/bootstrap";
 @import "font_awesome5_webfont";
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
+body{
+  font-family: 'EB Garamond', serif;
+}
 
 .selector-on {
   color: gold;
@@ -120,6 +125,12 @@ $enable-responsive-font-sizes: true;
   font-size: 5rem;
 }
 
+@media only screen and (max-width: 321px) {
+  .body{
+    height: auto !important;
+  }
+}
+
 @media only screen and (max-width: 450px) {
   .sm-h1 {
     font-size: 2.5rem !important;
@@ -149,3 +160,5 @@ $enable-responsive-font-sizes: true;
     width: 65% !important;
   }
 }
+
+

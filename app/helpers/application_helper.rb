@@ -92,8 +92,9 @@ module ApplicationHelper
     end
   end
 
-  def project_all
-    Project.create(name: 'None', user: User.first) unless Project.find_by(name: 'None')
+  def project_all(user = nil)
+    user = User.first if user.nil?
+    Project.create(name: 'None', user: user) unless Project.find_by(name: 'None')
     Project.all
   end
 

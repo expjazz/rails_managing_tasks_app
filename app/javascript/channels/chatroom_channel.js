@@ -53,6 +53,22 @@ consumer.subscriptions.create(
           newRecipient.value = data.sender.id;
         }
       }
+      let scroll_buttom = function () {
+        if ($("#chat-default").length > 0) {
+          $("#chat-default").scrollTop($("#chat-default")[0].scrollHeight);
+        }
+      };
+
+      let submit_message = function () {
+        $("#notice_body").on("keydown", function (e) {
+          if (e.keyCode == 13) {
+            $("button").click();
+            e.target.value = "";
+          }
+        });
+      };
+
+      scroll_buttom();
     },
   }
 );

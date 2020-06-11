@@ -28,17 +28,30 @@ consumer.subscriptions.create(
         let chatWindow = document.getElementById("chat-default");
         let dNone = document.getElementById("dis-none");
         dNone.classList.remove("d-none");
+        if (sender === currentUser[0] || recipient === currentUser[0]){
         chatWindow.innerHTML += ` <div class="card-body msg_card_body">
           <div class="d-flex justify-content-start mb-4">
             <div class="img_cont_msg">
-              <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img_msg">
+              <img src="${data.image_sender}" class="rounded-circle user_img_msg">
             </div>
             <div class="msg_cotainer">
               ${data.sender.name}: ${data.notice.body}
               <span class="msg_time">8:40 AM, Today</span>
             </div>
           </div>
-          </div>`;
+          </div>`;} else if (recipient === currentUser[0]) {
+            chatWindow.innerHTML += ` <div class="card-body msg_card_body">
+            <div class="d-flex justify-content-start mb-4">
+              <div class="img_cont_msg">
+                <img src=${data.image_recipient} class="rounded-circle user_img_msg">
+              </div>
+              <div class="msg_cotainer">
+                ${data.sender.name}: ${data.notice.body}
+                <span class="msg_time">8:40 AM, Today</span>
+              </div>
+            </div>
+            </div>`; 
+          }
         // "<p>" + data.sender.name + ":" + data.notice.body + "</p>"
 
         let count = 0;

@@ -10,7 +10,7 @@ class NoticeController < ApplicationController
                                    sender: @notice.sender,
                                    recipient: @notice.recipient,
                                    notice: @notice,
-                                   date: @notice.created_at.to_date,
+                                   date: @notice.created_at.strftime('%H:%M,%P,%A'),
                                    image_sender: url_for(@notice.sender.image),
                                    image_recipient: url_for(@notice.recipient.image)
     else

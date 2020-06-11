@@ -36,7 +36,7 @@ consumer.subscriptions.create(
             </div>
             <div class="msg_cotainer">
               ${data.sender.name}: ${data.notice.body}
-              <span class="msg_time">8:40 AM, Today</span>
+              <span class="msg_time">${data.date}</span>
             </div>
           </div>
           </div>`;} else if (recipient === currentUser[0]) {
@@ -47,7 +47,7 @@ consumer.subscriptions.create(
               </div>
               <div class="msg_cotainer">
                 ${data.sender.name}: ${data.notice.body}
-                <span class="msg_time">8:40 AM, Today</span>
+                <span class="msg_time">${data.date}</span>
               </div>
             </div>
             </div>`; 

@@ -18,7 +18,7 @@ class TasksController < ApplicationController
                      amount_counter(minutes, hours)
                    end
     if @task.save
-      redirect_to tasks_path
+      redirect_to group_path(@task.group)
       flash.now[:notice] = 'Your task was created with success.'
     else
       flash.now[:alert] = task_errors(@task)
@@ -29,13 +29,13 @@ class TasksController < ApplicationController
 
   def index
     @user = params[:user_id] ? User.find(params[:user_id]) : current_user
-    @all_tasks = Task.most_recent
+    @all_tasks = Task.most_recent.includes([:group])
     @past_tasks = past_tasks(@all_tasks)
     @tasks = @user.see_my_tasks(@past_tasks)
   end
 
   def externals
-    @all_tasks = Task.most_recent
+    @all_tasks = Task.most_recent.includes([:group])
     @external_tasks = current_user.external_tasks(@all_tasks)
   end
 

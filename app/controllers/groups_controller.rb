@@ -11,7 +11,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    @tasks = current_user.see_my_tasks(@group.tasks.most_recent)
+    @tasks = current_user.see_my_tasks(@group.tasks.most_recent.includes([:user]))
   end
 
   def create

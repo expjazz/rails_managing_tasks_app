@@ -14,7 +14,7 @@
 
 An app that lets you register tasks and group them in two levels, allowing one class of Users (managers) to keep track and assign tasks to other levels (employees), also allows comunication between them with a live-chat.
 
-![screenshot](screenshot.png)
+![screenshot](./images/mainpage.png)
 
 ## Live demo
 
@@ -36,7 +36,6 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 - Ruby on Rails
-
 
 ### Usage
 

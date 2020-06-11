@@ -22,14 +22,6 @@ module ApplicationHelper
     arr.sum
   end
 
-  def total_project_time(project)
-    total = 0
-    project.groups.includes([:tasks]).each do |group|
-      group.tasks.each { |task| total += task.amount }
-    end
-    total
-  end
-
   def username
     current_user.username if user_signed_in?
   end
@@ -52,32 +44,6 @@ module ApplicationHelper
     render 'notice/alerts' if user_signed_in?
   end
 
-  def total_group_time(groups)
-    total = 0
-    groups.each { |task| total += task.amount }
-    total
-  end
-
-  def no_group(list)
-    render 'groups/nogroups' if list.empty? || list.size == 1
-  end
-
-  def no_project(list)
-    render 'projects/noproject' if list.empty? || list.size == 1
-  end
-
-  def group_icon(task)
-    if task.group.nil?
-      ''
-    else
-      fa_icon task.group.icon, class: 'd-flex mr-3 f-s-5'
-    end
-  end
-
-  def chose_group_icon(icon)
-    fa_icon icon, class: 'f-s-3'
-  end
-
   def user_image(user)
     if user.image.attached?
       image_tag user.image, class: 'user-show-image text-center mt-5'
@@ -92,10 +58,6 @@ module ApplicationHelper
     else
       ''
     end
-  end
-
-  def message_chat(user)
-    Notice.find_by(sender: user)
   end
 
   def manage_employee(user)
@@ -128,11 +90,6 @@ module ApplicationHelper
     elsif current_user.profile_type == 'Manager' && current_user != user
       render 'tasks/manager'
     end
-  end
-
-  def group_all
-    Group.create(name: 'None', icon: '', user: User.first) unless Group.find_by(name: 'None')
-    Group.all
   end
 
   def project_all

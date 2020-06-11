@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'Creating Groups', type: :system do
-  let (:user) { FactoryBot.create(:user) }
-  let (:group) { FactoryBot.build(:group) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:group) { FactoryBot.build(:group) }
   feature 'With Valid params' do
     scenario 'With all the correct values' do
       visit root_path

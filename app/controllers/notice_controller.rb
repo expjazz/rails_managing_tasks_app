@@ -11,6 +11,8 @@ class NoticeController < ApplicationController
                                    recipient: @notice.recipient,
                                    notice: @notice,
                                    date: @notice.created_at.to_date
+    else
+      flash[:alert] = 'You message was not sent successfully.'
     end
   end
 

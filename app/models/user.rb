@@ -42,7 +42,7 @@ class User < ApplicationRecord
       output = []
 
       duration.each do |key, value|
-        if value > 0
+        if value.positive?
           output << "#{value} #{key}"
           output.last << 's' if value != 1
         end

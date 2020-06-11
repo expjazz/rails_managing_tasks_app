@@ -1,7 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'Creating Projects', type: :system do
-  let (:user) { FactoryBot.create(:user) }
-  let (:project) { FactoryBot.build(:project) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:project) { FactoryBot.build(:project) }
   feature 'With Valid params' do
     scenario 'With all the correct values' do
       visit root_path

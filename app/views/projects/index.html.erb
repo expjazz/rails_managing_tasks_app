@@ -1,5 +1,5 @@
 <div class="container-fluid w-100 h-100 bg-darkblue">
-    <%= header_two %>
+    <%= header_two('projects') %>
 
     <%= no_project(@projects) %>
   <div class="row">
@@ -17,9 +17,13 @@
       <% @projects.each do |project| %>
       <% next if project.name == 'None'%>
       <%= link_to project_path(project) do %>
-          <div class="d-flex align-items-baseline justify-content-center border-bottom">
-          <p class='text-white h5 p-3 '> <%= project.name %> </p> 
+          <div class="d-flex justify-content-center flex-column border-bottom">
+          <p class='text-white h5 '> <%= project.name %> </p> 
+            <%= link_to 'delete', project_path(project), class: 'text-white h6 sm-h5', method: :delete, data: { confirm: "Are you sure you want to delete this group and all tasks that belongs to it?" }%>
+
           </div>
+
+
         <% end %>
       <% end %>
     </div>

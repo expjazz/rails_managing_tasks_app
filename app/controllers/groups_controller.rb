@@ -14,6 +14,13 @@ class GroupsController < ApplicationController
     @tasks = current_user.see_my_tasks(@group.tasks.most_recent.includes([:user]))
   end
 
+  def destroy
+    @group = Group.find(params[:id])
+    @group.destroy
+    flash[:notice] = 'Your group was deleted'
+    redirect_to groups_path
+  end
+
   def create
     @group = Group.new(group_params)
     @group.user = current_user

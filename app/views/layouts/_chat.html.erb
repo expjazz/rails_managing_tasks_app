@@ -1,4 +1,4 @@
-				<div class="col-md-8 col-xl-6 chat d-none mt-3" id='dis-none'>
+				<div class="col-md-8 col-xl-6 chat d-none mt-3 mx-auto" id='dis-none'>
 					<div class="card" id='chat-defaul'>
 						<div class="card-header msg_head p-0">
 							<div class="d-flex bd-highlight">
@@ -12,23 +12,21 @@
               </div>
               <div class="card-footer">
 							<div class="input-group">
-								<div class="input-group-append">
-									<span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-								</div>
-                            <%= form_with(scope: :notice, url: './notice_create', method: :post, id: 'chat-form-fluid') do |f| %>
 
-                 <%= f.text_field :body, class: 'form-control type_msg' %>
+                            <%= form_with(scope: :notice, url: './notice_create', method: :post, id: 'chat-form-fluid', class: 'w-100') do |f| %>
+
+                 <%= f.text_field :body, class: 'form-control w-100 type_msg' %>
 
               <%# <%= hidden_field_tag :chatroom_id, Chatroom.last.id %>
               <%# <%= hidden_field_tag :recipient, user.id %>
 
 
               <%= f.hidden_field :recipient_id, :value => 1 %> 
+
+              <%= f.submit :send, class: 'btn btn-primary', id: 'button'%>
+
           <% end %>
-								<div class="input-group-append">
-									<span class="input-group-text send_btn"><i class="fas fa-location-arrow"></i></span>
-								</div>
-							</div>
+
 						</div>
               </div>
               </div>

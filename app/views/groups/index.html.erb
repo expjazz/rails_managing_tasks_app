@@ -1,5 +1,5 @@
 <div class="container-fluid w-100 h-100 bg-darkblue">
-    <%= header_two %>
+    <%= header_two('groups') %>
 
     <%= no_group(@groups) %>
 
@@ -16,14 +16,18 @@
           </div>
            <div class="d-flex align-items-baseline justify-content-center">
               <small class='text-white h6 sm-h5'> Created: <%= group.created_at.strftime("%B, %d, %Y") %> </small> 
-          </div>     
+          </div> 
+                  <% end %>
+    
            <div class="d-flex align-items-baseline justify-content-center">
               <small class='text-white h6 sm-h5'> Project: <%= group.project.name %> </small> 
-          </div>      
+          </div>  
+          <div class="d-flex align-items-baseline justify-content-center">
+            <%= link_to 'Delete', group_path(group), class: 'text-white h6 sm-h5', method: :delete, data: { confirm: "Are you sure you want to delete this group and all tasks that belongs to it?" }%>
+          </div>     
           </div>   
               </div>
   </div>
-        <% end %>
       <% end %>
 
 

@@ -24,7 +24,7 @@ module ApplicationHelper
 
   def total_project_time(project)
     total = 0
-    project.groups.each do |group|
+    project.groups.includes([:tasks]).each do |group|
       group.tasks.each { |task| total += task.amount }
     end
     total
@@ -44,8 +44,8 @@ module ApplicationHelper
     end
   end
 
-  def header_two
-    render 'layouts/header_two' if current_page?(groups_path) || current_page?(projects_path)
+  def header_two(title)
+    render 'layouts/header_two', title: title if current_page?(groups_path) || current_page?(projects_path)
   end
 
   def notice_alerts

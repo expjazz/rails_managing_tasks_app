@@ -62,13 +62,13 @@ consumer.subscriptions.create(
       let submit_message = function () {
         $("#notice_body").on("keydown", function (e) {
           if (e.keyCode == 13) {
-            $("button").click();
+            $("#button").click();
             e.target.value = "";
           }
         });
       };
-
       scroll_buttom();
+      submit_message();
     },
   }
 );

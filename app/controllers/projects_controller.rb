@@ -22,7 +22,15 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @groups = @project.groups
+    @groups = @project.groups.includes([:user])
+    # @project.groups.includes([:tasks]).includes([:user])
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    flash[:notice] = 'Your task was deleted'
+    redirect_to projects_path
   end
 
   private

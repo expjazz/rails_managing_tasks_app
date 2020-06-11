@@ -29,9 +29,14 @@ class TasksController < ApplicationController
 
   def index
     @user = params[:user_id] ? User.find(params[:user_id]) : current_user
-    @all_tasks = Task.most_recent.includes([:group])
+    @all_tasks = if @user == current_user
+                   Task.most_recent.includes([:group])
+                 else
+                   Task.most_recent
+                 end
     @past_tasks = past_tasks(@all_tasks)
     @tasks = @user.see_my_tasks(@past_tasks)
+    @projects = Project.all
   end
 
   def externals
@@ -56,6 +61,13 @@ class TasksController < ApplicationController
     @task.update(task_params)
     @task.status = true
     redirect_to tasks_path if @task.save
+  end
+
+  def destroy
+    @task = Task.find(params[:id])
+    @task.destroy
+    flash[:notice] = 'Your task was deleted'
+    redirect_to tasks_path
   end
 
   private

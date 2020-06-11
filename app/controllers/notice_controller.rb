@@ -4,15 +4,14 @@ class NoticeController < ApplicationController
     @notice = current_user.alert_sent.build(notice_params)
     @notice.chatroom_id = 1
     if @notice.save
-
       ActionCable.server.broadcast "chatroom_channel_#{@notice.chatroom_id}",
                                    message: 'Hello',
                                    sender: @notice.sender,
                                    recipient: @notice.recipient,
                                    notice: @notice,
                                    date: @notice.created_at.strftime('%H:%M,%P,%A'),
-                                   image_sender: url_for(@notice.sender.image),
-                                   image_recipient: url_for(@notice.recipient.image)
+                                   image_sender: image_java(@notice.sender),
+                                   image_recipient: image_java(@notice.recipient)
     else
       flash[:alert] = 'You message was not sent successfully.'
     end
@@ -22,5 +21,11 @@ class NoticeController < ApplicationController
 
   def notice_params
     params.require(:notice).permit(:recipient_id, :body)
+  end
+
+  def image_java(user)
+    return url_for(user.image) if user.image.attached?
+
+    ''
   end
 end

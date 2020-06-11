@@ -2,7 +2,7 @@
 @import "font_awesome5_webfont";
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
-body{
+body {
   font-family: 'EB Garamond', serif;
 }
 
@@ -126,7 +126,7 @@ $enable-responsive-font-sizes: true;
 }
 
 @media only screen and (max-width: 321px) {
-  .body{
+  .body {
     height: auto !important;
   }
 }
@@ -160,5 +160,3 @@ $enable-responsive-font-sizes: true;
     width: 65% !important;
   }
 }
-
-

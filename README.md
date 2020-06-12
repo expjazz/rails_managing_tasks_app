@@ -12,7 +12,7 @@
 
 ## Description
 
-An app that lets you register tasks and group them in two levels, allowing one class of Users (managers) to keep track and assign tasks to other levels (employees), also allows comunication between them with a live-chat.
+An app that lets you register tasks and groups them in two levels, allowing one class of Users (managers) to keep track and assign tasks to other levels (employees), also allows communication between them with a live-chat.
 
 ![screenshot](./images/mainpage.png)
 

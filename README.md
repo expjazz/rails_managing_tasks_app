@@ -38,6 +38,11 @@ To get a local copy up and running follow these simple example steps.
 - Ruby on Rails
 
 ### Usage
+- To create tasks, just go on to create tasks and click on the 'Add new' button. (To use the timer, just click on 'set timer'.)
+- To create groups, go to 'See all groups of tasks', click on 'Add new', give it a name and an icon and click on submit.
+- When you create your user profile, you can be either a manager or an employee (the option is on the top right of the signup page). If you want access to all employee's tasks, choose the manager profile (the access occurr automatically). If you choose the employee, you won't be able to access this functionality. 
+- If you are a manager, the option 'Manager your employee's tasks will show up on your profile page. Click on that to manage the tasks of your employees. To add a task for an employee, click on the blue link 'Manage tasks', then click on the button 'Add new'. As you go onwards, you will be creating a task for your employee (he will get a notification once he checks his tasks.)
+- To initiate a live chat with your employee, click on the 'Initiate a private chat'. A chat window will appear on the bottom of the page.
 
 #### Online
 

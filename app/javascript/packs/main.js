@@ -27,7 +27,7 @@ let changer2 = function (e) {
     temp.classList.add("selector-of");
     temp2.classList.add("selector-on");
     employee.innerHTML = "";
-    manager.innerHTML = `<<div class="form-group">
+    manager.innerHTML = `<div class="form-group">
       <label for="profile_status">Status</label>
       <input class="form-control" type="text" name="profile[manager]" id="profile_manager">
     </div>`;

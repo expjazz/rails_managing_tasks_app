@@ -129,6 +129,10 @@ $enable-responsive-font-sizes: true;
   font-size: 5rem;
 }
 
+.title-pr{
+  padding-right: 41px;
+}
+
 @media only screen and (max-width: 321px) {
   .body {
     height: auto !important;

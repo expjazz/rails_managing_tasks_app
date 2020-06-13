@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'pg', '1.1.4'
 
 # Use Active Storage variant
 gem 'devise'
@@ -46,7 +47,6 @@ group :development, :test do
   # The following gems aids with the nuts and bolts
   # of interacting with the browser.
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'sqlite3', '~> 1.4'
   gem 'webdrivers'
 end
 

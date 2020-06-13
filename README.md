@@ -57,6 +57,7 @@ To get a local copy up and running follow these simple example steps.
 
 #### Tests
 - All tests were built with Rspec. To test all the features, type 'rspec' on the terminal.
+- The integrated tests (in which opens the browser to check if all the functionalities are working) run automatically when you run 'RSpec'. To run only them, type 'RSpec spec/features/(type the file with the feature name you want to check + .rb)
 
 #### What can it do
 - It allows a manager to track the tasks of his team.

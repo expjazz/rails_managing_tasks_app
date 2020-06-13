@@ -10,9 +10,8 @@ class UsersController < ApplicationController
   end
 
   def check_user
-    if current_user != User.find(params[:id])
-      redirect_to root_path
-      flash[:alert] = 'You can only see your own profile.'
-    end
+    redirect_to root_path if current_user != User.find(params[:id])
+
+    flash[:alert] = 'You can only see your own profile.' if current_user != User.find(params[:id])
   end
 end

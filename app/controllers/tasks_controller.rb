@@ -29,6 +29,10 @@ class TasksController < ApplicationController
 
   def index
     @user = params[:user_id] ? User.find(params[:user_id]) : current_user
+    if @user != current_user && current_user.profile_type != 'Manager'
+      redirect_to root_path
+      flash[:alert] = "You need to be a Manager to see other user's tasks"
+    end
     @all_tasks = if @user == current_user && Task.most_recent.size > 1
                    Task.most_recent.includes([:group])
                  else
